@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 0655d96ffb12d40cc86b180f717d37d5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2594550055704193710
+    second: TitleScreenBlueHarvesFINAL_0
+  - first:
+      213: -6260544881935666996
+    second: TitleScreenBlueHarvesFINAL_1
+  - first:
+      213: 6890828996985895887
+    second: TitleScreenBlueHarvesFINAL_2
+  - first:
+      213: -5335647108917475672
+    second: TitleScreenBlueHarvesFINAL_3
+  - first:
+      213: -7227404356435264129
+    second: TitleScreenBlueHarvesFINAL_4
+  - first:
+      213: -5841390224000758856
+    second: TitleScreenBlueHarvesFINAL_5
+  - first:
+      213: -307429603769128808
+    second: TitleScreenBlueHarvesFINAL_6
+  - first:
+      213: 2566775179555147933
+    second: TitleScreenBlueHarvesFINAL_7
+  - first:
+      213: -7402496847178311006
+    second: TitleScreenBlueHarvesFINAL_8
+  - first:
+      213: 3711853117832540041
+    second: TitleScreenBlueHarvesFINAL_9
+  - first:
+      213: -825268477013711908
+    second: TitleScreenBlueHarvesFINAL_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_0
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 211
+        width: 61
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25518c9887e4efbd0800000000000000
+      internalID: -2594550055704193710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 275
+        width: 59
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0b5d389931e19a0800000000000000
+      internalID: -6260544881935666996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 275
+        width: 27
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb3e4da67421af50800000000000000
+      internalID: 6890828996985895887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_3
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 274
+        width: 57
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a642225939f3f5b0800000000000000
+      internalID: -5335647108917475672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_4
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 274
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7db09eb70a13bb90800000000000000
+      internalID: -7227404356435264129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_5
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 211
+        width: 67
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bbceff4a863feea0800000000000000
+      internalID: -5841390224000758856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_6
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 211
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 898e6e9776acbbbf0800000000000000
+      internalID: -307429603769128808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 211
+        width: 41
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d909cab2d640f9320800000000000000
+      internalID: 2566775179555147933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 211
+        width: 57
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aadcfc665c054990800000000000000
+      internalID: -7402496847178311006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_9
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 211
+        width: 53
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fa5d29eb6238330800000000000000
+      internalID: 3711853117832540041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TitleScreenBlueHarvesFINAL_10
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 211
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd3254f41be0c84f0800000000000000
+      internalID: -825268477013711908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TitleScreenBlueHarvesFINAL_0: -2594550055704193710
+      TitleScreenBlueHarvesFINAL_1: -6260544881935666996
+      TitleScreenBlueHarvesFINAL_10: -825268477013711908
+      TitleScreenBlueHarvesFINAL_2: 6890828996985895887
+      TitleScreenBlueHarvesFINAL_3: -5335647108917475672
+      TitleScreenBlueHarvesFINAL_4: -7227404356435264129
+      TitleScreenBlueHarvesFINAL_5: -5841390224000758856
+      TitleScreenBlueHarvesFINAL_6: -307429603769128808
+      TitleScreenBlueHarvesFINAL_7: 2566775179555147933
+      TitleScreenBlueHarvesFINAL_8: -7402496847178311006
+      TitleScreenBlueHarvesFINAL_9: 3711853117832540041
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
