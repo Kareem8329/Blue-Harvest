@@ -9,7 +9,7 @@ public class EnemyBehavior : MonoBehaviour
 
     [Header("Movement Settings")]
     public float airMoveSpeed = 4f;
-    public float groundMoveSpeed = 2f; // 👈 Changeable in Inspector
+    public float groundMoveSpeed = 2f;
 
     private Rigidbody2D rb;
     private Transform player;
