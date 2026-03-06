@@ -13,13 +13,19 @@ public class GameManagerScript : MonoBehaviour
     public float spawnPlanetOffset;
     public float spawnPlanetYPosition;
 
+    private float leftBoundary;
+    private float rightBoundary;
+
+void Start()
+    {
+        leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
+        rightBoundary = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+    }
+
     void spawnPlanet()
     {
-        leftCameraBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
-        rightCameraBoundary = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
-
         // Spawn the sun
-        Instantiate(sunPrefab, new Vector3(leftCameraBoundary + spawnPlanetOffset, spawnPlanetYPosition, 0), Quaternion.identity);
+        Instantiate(sunPrefab, new Vector3(leftBoundary + spawnPlanetOffset, spawnPlanetYPosition, 0), Quaternion.identity);
 
         //I want to move the sunmoon game object across the screen from right to left over the course of the day duration, and then destroy it at the end of the day duration, and then spawn a new one for the next day, and repeat this process indefinitely
     }
@@ -28,7 +34,7 @@ public class GameManagerScript : MonoBehaviour
     {
         daytimer += Time.deltaTime;
 
-        sunPrefab.transform.position = new Vector3(Mathf.Lerp(rightCameraBoundary, leftCameraBoundary, daytimer / dayDuration), spawnPlanetYPosition, 0);
+        sunPrefab.transform.position = new Vector3(Mathf.Lerp(rightBoundary, leftBoundary, daytimer / dayDuration), spawnPlanetYPosition, 0);
 
         if (daytimer >= dayDuration)
         {

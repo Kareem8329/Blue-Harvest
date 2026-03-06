@@ -9,8 +9,6 @@ public class SpawnerScript : MonoBehaviour
     [Header("Ship")]
     public GameObject ship;
 
-    public int num; 
-
     private float leftCameraBoundary; // The area where the prefab will be spawned
     private float rightCameraBoundary; // The area where the prefab will be spawned
     private float leftShipBoundary; // The area where the prefab will be spawned
@@ -32,16 +30,16 @@ public class SpawnerScript : MonoBehaviour
         if (Random.value < 0.5f)
         {
             // Left side
-            spawnX = Random.Range(leftCameraBoundary +1f, leftShipBoundary);
+            spawnXPosition = Random.Range(leftCameraBoundary +1f, leftShipBoundary);
         }
         else
         {
             // Right side
-            spawnX = Random.Range(rightShipBoundary, rightCameraBoundary -1f);
+            spawnXPosition = Random.Range(rightShipBoundary, rightCameraBoundary -1f);
         }
 
         float spawnY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - 1;
-        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0);
+        Vector3 spawnPosition = new Vector3(spawnXPosition, spawnY, 0);
 
         return spawnPosition;
     }
