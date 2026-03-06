@@ -9,6 +9,8 @@ public class SpawnerScript : MonoBehaviour
     [Header("Ship")]
     public GameObject ship;
 
+    public int num; 
+
     private float leftCameraBoundary; // The area where the prefab will be spawned
     private float rightCameraBoundary; // The area where the prefab will be spawned
     private float leftShipBoundary; // The area where the prefab will be spawned
