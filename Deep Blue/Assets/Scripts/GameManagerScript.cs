@@ -5,7 +5,7 @@ public class GameManagerScript : MonoBehaviour
 {
     private float dayDuration = 60f; // Duration of a day in seconds
     private float daytimer = 0f;
-    public bool isDay = true; // Start with day
+    public static bool isDay = true; // Start with day
 
     public GameObject sunPrefab;
     public GameObject moonPrefab;
@@ -25,6 +25,14 @@ void Start()
     void spawnPlanet()
     {
         // Spawn the sun
+        if (isDay)
+        {
+            Instantiate(sunPrefab, new Vector3(leftBoundary + spawnPlanetOffset, spawnPlanetYPosition, 0), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(moonPrefab, new Vector3(leftBoundary + spawnPlanetOffset, spawnPlanetYPosition, 0), Quaternion.identity);
+        }
         Instantiate(sunPrefab, new Vector3(leftBoundary + spawnPlanetOffset, spawnPlanetYPosition, 0), Quaternion.identity);
 
         //I want to move the sunmoon game object across the screen from right to left over the course of the day duration, and then destroy it at the end of the day duration, and then spawn a new one for the next day, and repeat this process indefinitely

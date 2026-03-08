@@ -17,6 +17,8 @@ public class SpawnerScript : MonoBehaviour
     public float fishSpawnInterval = 4f; // Time interval for spawning fish
     public float enemySpawnInterval = 6f; // Time interval for spawning enemies
 
+    private GameManagerScript gameManagerScript;
+
     public Vector3 getSpawnPosition()
     {
 
@@ -46,13 +48,13 @@ public class SpawnerScript : MonoBehaviour
 
     void StartSpawning()
     {
-        if ( GameManagerScript.instance.Time == "day")
+        if (GameManagerScript.isDay)
         {
-            InvokeRepeating(TrySpawnFish, 0f, fishSpawnInterval); // Start spawning fish every 4 seconds after a delay of 2 seconds
+            InvokeRepeating("TrySpawnFish", 0f, fishSpawnInterval); // Start spawning fish every 4 seconds after a delay of 2 seconds
         }
-        else if (GameManagerScript.instance.Time == "night")
+        else
         {
-            InvokeRepeating(TrySpawnEnemy, 0f, enemySpawnInterval); // Start spawning enemies every 6 seconds after a delay of 5 seconds
+            InvokeRepeating("TrySpawnEnemy", 0f, enemySpawnInterval); // Start spawning enemies every 6 seconds after a delay of 5 seconds
         }
     }
 

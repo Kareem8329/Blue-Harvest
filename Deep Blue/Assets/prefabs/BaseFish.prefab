@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 745398417831689980}
   - component: {fileID: 5954510356143765794}
   - component: {fileID: 1637377350958135091}
-  - component: {fileID: 4618584432611327834}
   - component: {fileID: -1735921651500862979}
   - component: {fileID: 1473649416532469265}
+  - component: {fileID: 4197031587634126388}
   m_Layer: 6
   m_Name: BaseFish
   m_TagString: Untagged
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3630131153299501272}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -17.47, y: -9.03, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5954510356143765794
 SpriteRenderer:
   serializedVersion: 2
@@ -122,21 +122,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4618584432611327834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3630131153299501272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7834080ecd1444d9f2d722d29f4a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  jumpForce: 30
-  waterGravityMultiplier: 1
-  forceMultiplier: 1
 --- !u!61 &-1735921651500862979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +156,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.027876288, y: 0.019605637}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,7 +166,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.41109222, y: 1.243428}
+  m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1473649416532469265
 MonoBehaviour:
@@ -201,3 +186,16 @@ MonoBehaviour:
   spearLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &4197031587634126388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630131153299501272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c16f5314b69a4466a74e6c3c7c84c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  jumpForce: 12

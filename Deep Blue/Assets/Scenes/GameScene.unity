@@ -2427,7 +2427,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368824cb065c64f239c91ee1d1abcd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  objectToSpawn: []
+  FishToSpawn:
+  - {fileID: 8107386945727764679, guid: 0b35e26bfb7494d2ab24fc5105d80ecd, type: 3}
+  - {fileID: 6999308225201940146, guid: 7401d8b76f9e247edb82e2e74bf64e13, type: 3}
+  - {fileID: 6597615683730044665, guid: d2fddff9e5a4e44acbeb0424da6dc7e8, type: 3}
+  EnemiesToSpawn:
+  - {fileID: 6938725818316074700, guid: a6b0e55b3df6c40c1b8a5d745f31bafc, type: 3}
+  ship: {fileID: 1785240320}
+  fishSpawnInterval: 4
+  enemySpawnInterval: 6
 --- !u!1 &1511161225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2893,7 +2901,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a284c123a577b4f7aaf43b9b6ca670e7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::GameManagerScript
+  sunPrefab: {fileID: 7005952175118410729, guid: 056753c0b6b3847169a9faec749c024e, type: 3}
+  moonPrefab: {fileID: 5135796908728311278, guid: 40e3912de46814824b049d3dc4987c83, type: 3}
+  spawnPlanetOffset: 2
+  spawnPlanetYPosition: 7.5
 --- !u!1 &1658497017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,7 +3607,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2.0748463, y: -1.2481792}
+  m_Offset: {x: 0.17553616, y: -1.8665597}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3605,7 +3617,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 17.725307, y: 5.913386}
+  m_Size: {x: 21.523928, y: 7.150147}
   m_EdgeRadius: 0
 --- !u!212 &1785240322
 SpriteRenderer:
