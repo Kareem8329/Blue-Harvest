@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.daniel-geo.unityhackatime": {
+      "version": "https://github.com/daniel-geo/unity-hackatime.git#package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5ac210a9a287428cb876ce9ea4ef14fe31e115b7"
+    },
     "com.unity.2d.animation": {
       "version": "13.0.4",
       "depth": 0,
@@ -282,13 +289,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "com.vladfaust.unitywakatime": {
-      "version": "https://github.com/vladfaust/unity-wakatime.git#package",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4dedbeac2e2d61c5c892e517728d2c4c74ce0acc"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

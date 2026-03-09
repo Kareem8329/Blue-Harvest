@@ -6,7 +6,7 @@ public class FishBehavior : MonoBehaviour
 
     [SerializeField] private float jumpForce = 12f;
 
-    void start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Jump();
