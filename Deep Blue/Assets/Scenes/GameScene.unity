@@ -888,7 +888,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99951196
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -2409,7 +2409,7 @@ Transform:
   m_GameObject: {fileID: 1474744814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2769,6 +2769,7 @@ GameObject:
   - component: {fileID: 1645380047}
   - component: {fileID: 1645380048}
   - component: {fileID: 1645380049}
+  - component: {fileID: 1645380050}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2902,6 +2903,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a284c123a577b4f7aaf43b9b6ca670e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerScript
+--- !u!114 &1645380050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645380045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ba97bec35f64cc9936c30483401373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  dayDuration: 60
   sunPrefab: {fileID: 7005952175118410729, guid: 056753c0b6b3847169a9faec749c024e, type: 3}
   moonPrefab: {fileID: 5135796908728311278, guid: 40e3912de46814824b049d3dc4987c83, type: 3}
   spawnPlanetOffset: 2
@@ -3687,7 +3701,7 @@ Transform:
   m_GameObject: {fileID: 1785240320}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.82905, z: 0}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

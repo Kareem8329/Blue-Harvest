@@ -5,7 +5,7 @@ public class DayNightCycle : MonoBehaviour
 
     private GameManagerScript gameManagerScript;
      
-    private float dayDuration = 60f; // Duration of a day in seconds
+    public float dayDuration = 60f; // Duration of a day in seconds
     private float daytimer = 0f;
 
     public GameObject sunPrefab;
