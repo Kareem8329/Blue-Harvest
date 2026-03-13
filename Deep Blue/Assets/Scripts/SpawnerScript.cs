@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
 {
-    [Header("Prefabs to Spawn")]
-    public GameObject[] FishToSpawn; // The Fishprefabs to spawn
-    public GameObject[] EnemiesToSpawn; // The Enemy prefabs to spawn
-
     [Header("Ship")]
     public GameObject ship;
 
@@ -14,8 +10,8 @@ public class SpawnerScript : MonoBehaviour
     private float leftShipBoundary; // The area where the prefab will be spawned
     private float rightShipBoundary; // The area where the prefab will be spawned
 
-    public float fishSpawnInterval = 4f; // Time interval for spawning fish
-    public float enemySpawnInterval = 6f; // Time interval for spawning enemies
+    public float fishSpawnInterval = 1f; // Time interval for spawning fish
+    public float enemySpawnInterval = 1f; // Time interval for spawning enemies
 
     private GameManagerScript gameManagerScript;
 
@@ -50,17 +46,31 @@ public class SpawnerScript : MonoBehaviour
     {
         if (GameManagerScript.isDay)
         {
-            InvokeRepeating("TrySpawnFish", 0f, fishSpawnInterval); // Start spawning fish every 4 seconds after a delay of 2 seconds
+            InvokeRepeating("TrySpawnFish", 0f, fishSpawnInterval); // Start spawning fish every 4 seconds after a delay of 0 seconds
         }
         else
         {
-            InvokeRepeating("TrySpawnEnemy", 0f, enemySpawnInterval); // Start spawning enemies every 6 seconds after a delay of 5 seconds
+            InvokeRepeating("TrySpawnEnemy", 0f, enemySpawnInterval); // Start spawning enemies every 6 seconds after a delay of 0 seconds
         }
     }
 
     void TrySpawnFish()
     {
         // try spawning a random fish keeping in mind the spawn chance of each fish type
+
+        if(Random.value < 0.4f) // 80% chance to spawn a fish
+        {
+            SpawnFish("Common");
+        }
+        else if(Random.value < 0.425f) // 15% chance to spawn a fish
+        {
+            SpawnFish("Rare");
+        }
+        else // 5% chance to spawn a fish
+        {
+            SpawnFish("Legendary");
+        }
+
     }
 
     void TrySpawnEnemy()
@@ -68,20 +78,15 @@ public class SpawnerScript : MonoBehaviour
         // try spawning a random enemy keeping in mind the spawn chance of each enemy type
     }
 
-    void SpawnFish()
+    void SpawnFish(string fishrarity)
     {
         Vector3 spawnPosition = getSpawnPosition();
-        Instantiate(FishToSpawn[Random.Range(0, FishToSpawn.Length)], spawnPosition, Quaternion.identity);
+        //  Instantiate(FishToSpawn[Random.Range(0, FishToSpawn.Length)], spawnPosition, Quaternion.identity);
     }
 
     void SpawnEnemy()
     {
         Vector3 spawnPosition = getSpawnPosition();
-        Instantiate(EnemiesToSpawn[Random.Range(0, EnemiesToSpawn.Length)], spawnPosition, Quaternion.identity);
-    }
-
-    void ChangeActiveShip(GameObject newShip)
-    {
-       ship = newShip;
+        //Instantiate(EnemiesToSpawn[Random.Range(0, EnemiesToSpawn.Length)], spawnPosition, Quaternion.identity);
     }
 }
