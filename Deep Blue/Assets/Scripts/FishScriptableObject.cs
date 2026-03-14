@@ -3,30 +3,32 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FishScriptableObject", menuName = "ScriptableObjects/Fish")]
 public class FishScriptableObject : ScriptableObject
 {
-    [SerializeField] private string fishName;
-    [SerializeField] private Sprite fishSprite;
+    [SerializeField] private string FishName;
+    [SerializeField] private Sprite FishSprite;
 
-    [SerializeField] private Rarity rarity;
-    [SerializeField] private FishAttribute attribute;
+    [SerializeField] private RarityEnum rarity;
+    [SerializeField] private AttributeEnum attribute;
 
-    public Rarity FishRarity => rarity;
-    public FishAttribute Attribute => attribute;
+    // Properties for other scripts to access the private fields (Getters)
+    public string fishName => FishName;
+    public Sprite fishSprite => FishSprite;
+    public RarityEnum FishRarity => rarity;
+    public AttributeEnum FishAttribute => attribute;
 
-    public enum Rarity
+    public enum RarityEnum
     {
         Common,
         Rare,
         Legendary
     }
 
-    public enum FishAttribute
+    public enum AttributeEnum
     {
         None,
         HPBuff,
-        BetterJump,
         BetterHPBuff,
-        BetterDamageBuff,
         DamageBuff,
+        BetterDamageBuff,
         LuckBuff,
         PiercingSpear
     }

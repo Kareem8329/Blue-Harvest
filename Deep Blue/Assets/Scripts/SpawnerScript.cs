@@ -58,27 +58,19 @@ public class SpawnerScript : MonoBehaviour
     {
         // try spawning a random fish keeping in mind the spawn chance of each fish type
 
-        if(Random.value < 0.4f) // 80% chance to spawn a fish
-        {
-            SpawnFish("Common");
-        }
-        else if(Random.value < 0.425f) // 15% chance to spawn a fish
-        {
-            SpawnFish("Rare");
-        }
-        else // 5% chance to spawn a fish
-        {
-            SpawnFish("Legendary");
-        }
+        // Fish or no fish
+        // If fish, which fish type
+        // Spawn the fish randomly from the type of the fish
+        // Everything should be multiplied by the luck stat of the player
 
     }
 
     void TrySpawnEnemy()
     {
-        // try spawning a random enemy keeping in mind the spawn chance of each enemy type
+        // Try spawning a random enemy keeping in mind the spawn chance of each enemy type
     }
 
-    void SpawnFish(string fishrarity)
+    void SpawnFish()
     {
         Vector3 spawnPosition = getSpawnPosition();
         //  Instantiate(FishToSpawn[Random.Range(0, FishToSpawn.Length)], spawnPosition, Quaternion.identity);
