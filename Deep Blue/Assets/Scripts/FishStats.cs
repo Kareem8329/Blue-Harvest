@@ -24,9 +24,9 @@ public class FishStats : MonoBehaviour
         }
 
         // Damage buff (permanent)
-        if (damageEffect != 0 && PlayerStats.Instance != null)
+        if (damageEffect != 0)
         {
-            PlayerStats.Instance.AddDamage(damageEffect);
+            PlayerStats.damage += damageEffect;
         }
 
         Destroy(gameObject);   

@@ -14,6 +14,7 @@ public class SpawnerScript : MonoBehaviour
     public float enemySpawnInterval = 1f; // Time interval for spawning enemies
 
     private GameManagerScript gameManagerScript;
+    private PlayerStats playerStats;
 
     public Vector3 getSpawnPosition()
     {
@@ -73,7 +74,23 @@ public class SpawnerScript : MonoBehaviour
     void SpawnFish()
     {
         Vector3 spawnPosition = getSpawnPosition();
-        //  Instantiate(FishToSpawn[Random.Range(0, FishToSpawn.Length)], spawnPosition, Quaternion.identity);
+        float spawnChance = 0.5f * PlayerStats.luck; // Get a random value between 0 and 1
+        if(Random.value < spawnChance)
+        {
+            // Spawn a fish at the spawn position with a random fish with random rarity
+        }
+    }
+
+    public enum Rarity { Trash, Common, Rare, Legendary }
+
+    Rarity RollRarity()
+    {
+        float rarityRoll = Mathf.Clamp(Random.value * PlayerStats.luck, 0f, 1f);
+
+        if (rarityRoll < 0.2f) return Rarity.Trash;
+        if (rarityRoll < 0.6f) return Rarity.Common;
+        if (rarityRoll < 0.9f) return Rarity.Rare;
+        return Rarity.Legendary;
     }
 
     void SpawnEnemy()
