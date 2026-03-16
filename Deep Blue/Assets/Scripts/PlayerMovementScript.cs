@@ -54,15 +54,6 @@ public class PlayerMovementScript : MonoBehaviour
         isWalking = Mathf.Abs(moveInput.x) > 0.1f && isGrounded;
         animator.SetBool("Walking", isWalking);
 
-    if(isWalking)
-        {
-            gameObject.GetComponent<AudioSource>().enabled = true;
-        }
-        else
-        {
-            gameObject.GetComponent<AudioSource>().enabled = false;
-        }
-
         // Flip sprite
         if (moveInput.x < 0)
             spriteRenderer.flipX = false;

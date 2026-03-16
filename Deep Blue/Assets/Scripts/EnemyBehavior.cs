@@ -36,17 +36,25 @@ public class EnemyBehavior : MonoBehaviour
         rb.AddForce(force, ForceMode2D.Impulse);
     }
 
-    void Update()
-    {
-        if (player == null) return;
+void Update()
+{
+    if (player == null) return;
 
-        float direction = Mathf.Sign(player.position.x - transform.position.x);
-        rb.linearVelocity = new Vector2(direction * currentMoveSpeed, rb.linearVelocity.y);
-    }
+    float direction = Mathf.Sign(player.position.x - transform.position.x);
+
+    rb.linearVelocity = new Vector2(direction * currentMoveSpeed, rb.linearVelocity.y);
+
+    // Flip sprite based on movement direction
+    Vector3 scale = transform.localScale;
+    scale.x = Mathf.Abs(scale.x) * -direction;
+    transform.localScale = scale;
+}
+
+    public float attackCooldown = 1.0f; // seconds between attacks
+    private float lastAttackTime = 0f;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 👇 Switch speed when touching Ground layer
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             isGrounded = true;
@@ -55,7 +63,16 @@ public class EnemyBehavior : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth.Instance?.TakeDamage(1);
+            TryAttack();
+        }
+    }
+
+    void TryAttack()
+    {
+        if (Time.time - lastAttackTime >= attackCooldown)
+        {
+            PlayerStats.hp -= 1;       // deal damage
+            lastAttackTime = Time.time; // reset cooldown
         }
     }
 }

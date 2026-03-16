@@ -21,6 +21,12 @@ public class FishDatabaseScriptableObject : ScriptableObject
 
     private void OnEnable() 
     {
+        // Clear existing lists to avoid duplicates when reloading the ScriptableObject
+        trashFish.Clear();
+        commonFish.Clear();
+        rareFish.Clear();
+        legendaryFish.Clear();
+
         // Populate the lists based on the rarity of the fish
         foreach (FishScriptableObject fish in AllFish)
         {

@@ -16,6 +16,7 @@ public class FishScriptableObject : ScriptableObject
     // Properties for other scripts to access the private fields (Getters)
     public string FishName => fishName;
     public Sprite FishSprite => fishSprite;
+    public GameObject FishPrefab => fishPrefab;
     public RarityEnum FishRarity => rarity;
     public AttributeEnum FishAttribute => attribute;
     public BehaviorEnum FishBehavior => behavior;

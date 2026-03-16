@@ -2,24 +2,39 @@ using UnityEngine;
 
 public class SpearScript : MonoBehaviour
 {
-    private bool hasHit = false;
+    // How many enemies the spear can pierce before being destroyed.
+    // Uses PlayerStats.pierce (float) but treats it as an integer count.
+    private int remainingPierceHits = 1;
+
+    void Start()
+    {
+        // Destroy spear after 5 seconds if it doesn't hit anything
+        Destroy(gameObject, 5f);
+
+        // Ensure spear can pierce based on player stat (minimum 1 hit)
+        remainingPierceHits = Mathf.Max(1, Mathf.FloorToInt(PlayerStats.pierce));
+    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasHit) return;
+        if (remainingPierceHits <= 0)
+            return;
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (!collision.gameObject.CompareTag("Enemy"))
+            return;
+
+        EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+        if (enemy != null)
         {
-            hasHit = true;
+            enemy.TakeDamage(PlayerStats.damage);
+        }
 
-            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                int damage = PlayerStats.damage;
-                enemy.TakeDamage(damage);
-            }
+        remainingPierceHits--;
 
-            // Destroy spear after short delay
+        // If we've used up all pierce hits, disable further collisions and destroy the spear
+        if (remainingPierceHits <= 0)
+        {
+            GetComponent<Collider2D>().enabled = false;
             Destroy(gameObject, 0.2f);
         }
     }

@@ -31,45 +31,14 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
-    {
-        UpdateHealthUI();
-    }
-
-    public void AddHealth(int amount)
-    {
-        if (currentHealth >= maxHealth) return;
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthUI();
-    }
-
     public void TakeDamage(int amount)
     {
         if (isInvincible) return;
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthUI();
 
-        if (currentHealth <= 0)
-        {
-        
-            Debug.Log("Player Dead");
 
-            // Show "You Lost" text
-            if (youLostText != null)
-                youLostText.SetActive(true);
-
-            // Immediately reload the scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-
-    private void UpdateHealthUI()
-    {
-        if (healthText != null)
-            healthText.text = "HP: " + currentHealth;
     }
 
     IEnumerator IFrames()

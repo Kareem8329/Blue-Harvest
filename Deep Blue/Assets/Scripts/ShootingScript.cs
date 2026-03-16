@@ -23,7 +23,7 @@ public class ShootingScript : MonoBehaviour
     public float bulletsize = 0.08f;
     public float bulletColliderSize = 5;
 
-  //  public AudioSource shootingAudio;
+    public AudioSource shootingAudio;
 
 
     public Vector3 direction;
@@ -85,19 +85,19 @@ public class ShootingScript : MonoBehaviour
 
             for (int i = 0; i < numOfBullets; i++)
             {
-                // Calculate angle offset
                 float angle = (i - center) * spread;
                 Vector3 directionOffset = Quaternion.AngleAxis(angle, Vector3.forward) * direction;
 
-                // Instantiate the bullet
-                GameObject bullet = Instantiate(bulletPrefab, bulletPosition, Quaternion.identity);
+                float angleZ = Mathf.Atan2(directionOffset.y, directionOffset.x) * Mathf.Rad2Deg;
+                Quaternion rotation = Quaternion.Euler(0f, 0f, angleZ);
+
+                GameObject bullet = Instantiate(bulletPrefab, bulletPosition, rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-                // Apply velocity with direction offset
                 rb.linearVelocity = directionOffset * bulletSpeed * timeButtonHeldDownFor;
             }
 
-            //shootingAudio.Play();
+            shootingAudio.Play();
 
             timeSinceLastShot = 0f;
             timeButtonHeldDownFor = 0f;

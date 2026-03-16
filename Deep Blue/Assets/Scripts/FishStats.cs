@@ -3,21 +3,18 @@ using UnityEngine;
 
 public class FishStats : MonoBehaviour
 {
-    [Header("Permanent Effects")]
-    public int hpEffect;
-    public int damageEffect;
 
     [Header("Trigger Settings")]
     public string spearTag = "Spear";
     public LayerMask spearLayer;
-
+ 
  public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Fish hit: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag(spearTag))
         {
         
-        // HP buff
+        /* HP buff
         if (hpEffect != 0 && PlayerHealth.Instance != null)
         {
             PlayerHealth.Instance.AddHealth(hpEffect);
@@ -28,6 +25,7 @@ public class FishStats : MonoBehaviour
         {
             PlayerStats.damage += damageEffect;
         }
+        */
 
         Destroy(gameObject);   
         }

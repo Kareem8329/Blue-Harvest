@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec22ad471514145708bcecb53185cb62, type: 3}
   m_Name: Fish Database
   m_EditorClassIdentifier: Assembly-CSharp::FishDatabaseScriptableObject
-  allFish: []
-  trashFish: []
-  commonFish: []
-  rareFish: []
-  legendaryFish: []
+  allFish:
+  - {fileID: 11400000, guid: 7830234115adb4a5fab986a88d8198d4, type: 2}
+  - {fileID: 11400000, guid: c2492013e86814d05981f0d2246af438, type: 2}
+  - {fileID: 11400000, guid: e4b116dad2198437ea5d1859faa9361d, type: 2}
+  - {fileID: 11400000, guid: 46957129f59bb4ea7a62a74a3ffe1604, type: 2}
+  - {fileID: 11400000, guid: 23ce81e5d295847d2bc44bab2b3da865, type: 2}
+  - {fileID: 11400000, guid: 4864c731572df43918e2cc729dc6b9bc, type: 2}
+  trashFish:
+  - {fileID: 11400000, guid: c2492013e86814d05981f0d2246af438, type: 2}
+  commonFish:
+  - {fileID: 11400000, guid: 7830234115adb4a5fab986a88d8198d4, type: 2}
+  rareFish:
+  - {fileID: 11400000, guid: 46957129f59bb4ea7a62a74a3ffe1604, type: 2}
+  legendaryFish:
+  - {fileID: 11400000, guid: e4b116dad2198437ea5d1859faa9361d, type: 2}

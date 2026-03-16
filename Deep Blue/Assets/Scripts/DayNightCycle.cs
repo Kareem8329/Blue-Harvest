@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class DayNightCycle : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class DayNightCycle : MonoBehaviour
      
     public float dayDuration = 60f; // Duration of a day in seconds
     private float daytimer = 0f;
+
+    public TMP_Text waveText;
+    public TMP_Text waveTextLoseScreen;
 
     public GameObject sunPrefab;
     public GameObject moonPrefab;
@@ -27,8 +31,8 @@ public class DayNightCycle : MonoBehaviour
         leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
         rightBoundary = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
 
-        startX = rightBoundary + spawnPlanetOffset;
-        endX = leftBoundary - spawnPlanetOffset;
+        endX = rightBoundary + spawnPlanetOffset;
+        startX = leftBoundary - spawnPlanetOffset;
 
         spawnPlanet();
     }
@@ -38,13 +42,16 @@ public class DayNightCycle : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3(startX, spawnPlanetYPosition, 0);
 
-        if (GameManagerScript.isDay) // Spawn the sun
+        if (GameManagerScript.Instance.isDay) // Spawn the sun
         {
             currentPlanet = Instantiate(sunPrefab, spawnPosition, Quaternion.identity);
+            Debug.Log("Spawning the sun...");
         }
         else // spawn the moon
         {
             currentPlanet = Instantiate(moonPrefab, spawnPosition, Quaternion.identity);
+            Debug.Log("Spawning the moon...");
+            GameManagerScript.Instance.waveNumber++; // Increment wave number at the start of each night
         }
 
     }
@@ -52,6 +59,9 @@ public class DayNightCycle : MonoBehaviour
     void Update()
     {
         daytimer += Time.deltaTime;
+
+        waveText.text = GameManagerScript.Instance.waveNumber.ToString();
+        waveTextLoseScreen.text = "Wave   " + GameManagerScript.Instance.waveNumber.ToString();
 
         if (currentPlanet != null)
         { 
@@ -66,6 +76,7 @@ public class DayNightCycle : MonoBehaviour
 
     void changeTime()
     {
+        Debug.Log("Changing time of day...");
         if (currentPlanet != null)
         {
             Destroy(currentPlanet);
@@ -75,7 +86,7 @@ public class DayNightCycle : MonoBehaviour
         //change the lighting setting to reflect the night
 
         daytimer = 0f; // Reset the timer
-        GameManagerScript.isDay = !GameManagerScript.isDay; // Toggle between day and night
+        GameManagerScript.Instance.ToggleDay(); // Toggle between day and night
     }
 
 }

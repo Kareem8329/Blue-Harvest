@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
@@ -10,11 +11,20 @@ public class SpawnerScript : MonoBehaviour
     private float leftShipBoundary; // The area where the prefab will be spawned
     private float rightShipBoundary; // The area where the prefab will be spawned
 
-    public float fishSpawnInterval = 1f; // Time interval for spawning fish
-    public float enemySpawnInterval = 1f; // Time interval for spawning enemies
+    public float fishSpawnInterval = 2f; // Time interval for spawning fish
+    public float enemySpawnInterval = 4f; // Time interval for spawning enemies
+
+    public GameObject enemyPrefab;
 
     private GameManagerScript gameManagerScript;
     private PlayerStats playerStats;
+
+    [SerializeField] private FishDatabaseScriptableObject fishDatabase;
+
+    void Start()
+    {
+        StartSpawning();
+    }
 
     public Vector3 getSpawnPosition()
     {
@@ -37,65 +47,89 @@ public class SpawnerScript : MonoBehaviour
             spawnXPosition = Random.Range(rightShipBoundary, rightCameraBoundary -1f);
         }
 
-        float spawnY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - 1;
-        Vector3 spawnPosition = new Vector3(spawnXPosition, spawnY, 0);
+        float BottomOfScreen = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y - 0.3f;
+        Vector3 spawnPosition = new Vector3(spawnXPosition, BottomOfScreen, 0);
 
         return spawnPosition;
     }
 
     void StartSpawning()
     {
-        if (GameManagerScript.isDay)
-        {
-            InvokeRepeating("TrySpawnFish", 0f, fishSpawnInterval); // Start spawning fish every 4 seconds after a delay of 0 seconds
-        }
-        else
-        {
-            InvokeRepeating("TrySpawnEnemy", 0f, enemySpawnInterval); // Start spawning enemies every 6 seconds after a delay of 0 seconds
-        }
-    }
+            InvokeRepeating("SpawnFish", 1f, fishSpawnInterval);
 
-    void TrySpawnFish()
-    {
-        // try spawning a random fish keeping in mind the spawn chance of each fish type
-
-        // Fish or no fish
-        // If fish, which fish type
-        // Spawn the fish randomly from the type of the fish
-        // Everything should be multiplied by the luck stat of the player
-
-    }
-
-    void TrySpawnEnemy()
-    {
-        // Try spawning a random enemy keeping in mind the spawn chance of each enemy type
+            InvokeRepeating("SpawnEnemy", 2f, enemySpawnInterval);
     }
 
     void SpawnFish()
     {
-        Vector3 spawnPosition = getSpawnPosition();
-        float spawnChance = 0.5f * PlayerStats.luck; // Get a random value between 0 and 1
-        if(Random.value < spawnChance)
+        if (GameManagerScript.Instance.isDay)
         {
-            // Spawn a fish at the spawn position with a random fish with random rarity
+            float spawnChance = 0.7f * PlayerStats.luck; // Get a random value between 0 and 1
+            if(Random.value < spawnChance)
+            {
+                Vector3 spawnPosition = getSpawnPosition();
+                Rarity rarity = RollRarity();
+                Debug.Log("Rolled rarity: " + rarity);
+
+                FishScriptableObject fishData = RandomFishFromRarity(rarity);
+
+                GameObject instantiatedFish = Instantiate(fishData.FishPrefab, spawnPosition, Quaternion.identity);
+                instantiatedFish.GetComponent<FishBehavior>().Initialize(fishData);
+            }
         }
+
     }
 
     public enum Rarity { Trash, Common, Rare, Legendary }
 
+    FishScriptableObject RandomFishFromRarity(Rarity rarity)
+    {
+        int spawnIndex;
+        switch (rarity)
+        {   
+            case Rarity.Trash:
+                spawnIndex = Random.Range(0, fishDatabase.TrashFish.Count);
+                return fishDatabase.TrashFish[spawnIndex];
+            case Rarity.Common:
+                spawnIndex = Random.Range(0, fishDatabase.CommonFish.Count);
+                return fishDatabase.CommonFish[spawnIndex];
+            case Rarity.Rare:
+                spawnIndex = Random.Range(0, fishDatabase.RareFish.Count);
+                return fishDatabase.RareFish[spawnIndex];
+            case Rarity.Legendary:
+                spawnIndex = Random.Range(0, fishDatabase.LegendaryFish.Count);
+                return fishDatabase.LegendaryFish[spawnIndex];
+        }
+        return null; // Default case, should never reach here
+    }
+
+
+
     Rarity RollRarity()
     {
-        float rarityRoll = Mathf.Clamp(Random.value * PlayerStats.luck, 0f, 1f);
+        float rarityRoll = Mathf.Clamp(Random.value * PlayerStats.luck, 0.05f, 1f);
 
-        if (rarityRoll < 0.2f) return Rarity.Trash;
-        if (rarityRoll < 0.6f) return Rarity.Common;
-        if (rarityRoll < 0.9f) return Rarity.Rare;
+        if (rarityRoll < 0.3f) return Rarity.Trash;
+        if (rarityRoll < 0.7f) return Rarity.Common;
+        if (rarityRoll < 0.93f) return Rarity.Rare;
         return Rarity.Legendary;
     }
 
     void SpawnEnemy()
     {
-        Vector3 spawnPosition = getSpawnPosition();
-        //Instantiate(EnemiesToSpawn[Random.Range(0, EnemiesToSpawn.Length)], spawnPosition, Quaternion.identity);
+        if (!GameManagerScript.Instance.isDay)
+        {
+            int wave = GameManagerScript.Instance.waveNumber;
+
+            // number of enemies increases with wave
+            int enemiesToSpawn = 1 + wave;
+
+            for (int i = 0; i < enemiesToSpawn; i++)
+            {
+                Vector3 spawnPosition = getSpawnPosition();
+                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            }
+        }
     }
+
 }
